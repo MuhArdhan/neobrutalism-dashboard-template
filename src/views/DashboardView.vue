@@ -1,15 +1,16 @@
 <script setup lang="ts">
-// Dashboard View
+import PageHeader from '../components/layout/PageHeader.vue'
 </script>
 
 <template>
   <div class="space-y-6">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-      <h1 class="text-3xl font-black uppercase tracking-tight">Dashboard</h1>
-      <button class="px-4 py-2 bg-primary font-bold border-3 border-black shadow-neo hover:shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] transition-all rounded-sm">
-        Download Report
-      </button>
-    </div>
+    <PageHeader title="Dashboard">
+      <template #actions>
+        <button class="px-4 py-2 bg-primary font-bold border-3 border-black shadow-neo hover:shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] transition-all rounded-sm">
+          Download Report
+        </button>
+      </template>
+    </PageHeader>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="bg-white p-6 border-3 border-black shadow-neo rounded-sm">
