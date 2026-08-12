@@ -7,6 +7,8 @@ import OrdersView from '../views/OrdersView.vue'
 import OrderDetailView from '../views/OrderDetailView.vue'
 import CustomersView from '../views/CustomersView.vue'
 import CustomerProfileView from '../views/CustomerProfileView.vue'
+import CouponsView from '../views/CouponsView.vue'
+import CouponFormView from '../views/CouponFormView.vue'
 import UIDemoView from '../views/UIDemoView.vue'
 
 const router = createRouter({
@@ -46,6 +48,16 @@ const router = createRouter({
       path: '/customers/:id',
       name: 'customer-profile',
       component: CustomerProfileView,
+    },
+    {
+      path: '/coupons',
+      name: 'coupons',
+      component: CouponsView,
+    },
+    {
+      path: '/coupons/new',
+      name: 'coupon-new',
+      component: CouponFormView,
     },
     {
       path: '/ui-demo',

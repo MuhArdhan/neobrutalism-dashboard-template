@@ -258,3 +258,10 @@ export const customersData = [
   { id: 'CUST-005', name: 'Michael Chen', email: 'michael.chen@example.com', orders: 24, spent: 3200.00, joinDate: '2024-03-05', status: 'VIP' },
   { id: 'CUST-006', name: 'Emily Wang', email: 'emily.wang@example.com', orders: 0, spent: 0, joinDate: '2026-08-10', status: 'Inactive' },
 ]
+
+export const couponsData = [
+  { id: 'CPN-001', code: 'NEO2026', type: 'Percentage', value: 20, minPurchase: '$50.00', usage: '145 / 500', expiry: '2026-12-31', status: 'Active' },
+  { id: 'CPN-002', code: 'WELCOME10', type: 'Fixed Amount', value: 10, minPurchase: '$0.00', usage: '89 / ∞', expiry: 'No Expiry', status: 'Active' },
+  { id: 'CPN-003', code: 'SUMMERFLASH', type: 'Percentage', value: 50, minPurchase: '$100.00', usage: '200 / 200', expiry: '2026-07-31', status: 'Expired' },
+  { id: 'CPN-004', code: 'BLACKFRIDAY', type: 'Fixed Amount', value: 30, minPurchase: '$150.00', usage: '0 / 1000', expiry: '2026-11-25', status: 'Scheduled' },
+]
