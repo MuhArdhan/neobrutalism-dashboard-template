@@ -66,6 +66,15 @@ defineEmits(['close'])
         Coupons
       </router-link>
       
+      <router-link
+        to="/flash-sales"
+        @click="$emit('close')"
+        active-class="bg-white border-black shadow-neo -translate-y-0.5"
+        class="block px-4 py-3 font-bold border-3 border-transparent hover:border-black hover:bg-white hover:shadow-neo transition-all rounded-sm mt-2"
+      >
+        Flash Sales
+      </router-link>
+      
       <div class="h-px bg-black my-2"></div>
 
       <router-link

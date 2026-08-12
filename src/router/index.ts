@@ -9,6 +9,8 @@ import CustomersView from '../views/CustomersView.vue'
 import CustomerProfileView from '../views/CustomerProfileView.vue'
 import CouponsView from '../views/CouponsView.vue'
 import CouponFormView from '../views/CouponFormView.vue'
+import FlashSalesView from '../views/FlashSalesView.vue'
+import FlashSaleFormView from '../views/FlashSaleFormView.vue'
 import UIDemoView from '../views/UIDemoView.vue'
 
 const router = createRouter({
@@ -58,6 +60,16 @@ const router = createRouter({
       path: '/coupons/new',
       name: 'coupon-new',
       component: CouponFormView,
+    },
+    {
+      path: '/flash-sales',
+      name: 'flash-sales',
+      component: FlashSalesView,
+    },
+    {
+      path: '/flash-sales/new',
+      name: 'flash-sale-new',
+      component: FlashSaleFormView,
     },
     {
       path: '/ui-demo',

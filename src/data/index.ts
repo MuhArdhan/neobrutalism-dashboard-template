@@ -265,3 +265,31 @@ export const couponsData = [
   { id: 'CPN-003', code: 'SUMMERFLASH', type: 'Percentage', value: 50, minPurchase: '$100.00', usage: '200 / 200', expiry: '2026-07-31', status: 'Expired' },
   { id: 'CPN-004', code: 'BLACKFRIDAY', type: 'Fixed Amount', value: 30, minPurchase: '$150.00', usage: '0 / 1000', expiry: '2026-11-25', status: 'Scheduled' },
 ]
+
+export const flashSalesData = [
+  { 
+    id: 'FS-001', 
+    name: 'Neo Summer Clearance', 
+    products: 12, 
+    status: 'Active',
+    // Mock an end time that is slightly in the future to show live countdown
+    endTime: new Date(Date.now() + 1000 * 60 * 60 * 5 + 1000 * 60 * 30).toISOString(), // ~5h 30m from now
+    startTime: new Date(Date.now() - 1000 * 60 * 60).toISOString(), // started 1h ago
+  },
+  { 
+    id: 'FS-002', 
+    name: 'Black Friday Super Drops', 
+    products: 50, 
+    status: 'Upcoming',
+    endTime: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30 + 1000 * 60 * 60 * 12).toISOString(), // ~30.5 days
+    startTime: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toISOString(), 
+  },
+  { 
+    id: 'FS-003', 
+    name: 'Weekend Flash Deals', 
+    products: 5, 
+    status: 'Past',
+    endTime: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(), 
+    startTime: new Date(Date.now() - 1000 * 60 * 60 * 48).toISOString(), 
+  },
+]
