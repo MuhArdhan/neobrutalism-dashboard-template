@@ -60,7 +60,36 @@ const prevStep = () => {
   if (currentStep.value > 0) currentStep.value--
 }
 
+const errors = ref<Record<string, string>>({})
+
+const validateForm = () => {
+  errors.value = {}
+  let isValid = true
+
+  if (!formData.value.name) {
+    errors.value.name = 'Product name is required'
+    isValid = false
+  }
+  
+  if (formData.value.variants.some(v => !v.price || v.price <= 0)) {
+    errors.value.price = 'Valid price is required for all variants'
+    isValid = false
+  }
+  
+  if (!formData.value.category) {
+    errors.value.category = 'Category is required'
+    isValid = false
+  }
+
+  return isValid
+}
+
 const handleSave = (isDraft = false) => {
+  if (!isDraft && !validateForm()) {
+    currentStep.value = 0
+    return
+  }
+
   formData.value.status = isDraft ? 'Draft' : 'Active'
   console.log('Saving product...', formData.value)
   // Mock API call
@@ -110,7 +139,7 @@ const removeVariant = (id: string) => {
         <!-- Step 1: General -->
         <Card v-show="currentStep === 0" title="General Information">
           <div class="space-y-4">
-            <Input v-model="formData.name" label="Product Name" placeholder="e.g. Neo-Brutalism UI Kit" />
+            <Input v-model="formData.name" label="Product Name" placeholder="e.g. Neo-Brutalism UI Kit" :error="errors.name" />
             
             <RichTextEditor v-model="formData.description" label="Description" />
           </div>
@@ -123,6 +152,9 @@ const removeVariant = (id: string) => {
         
         <!-- Step 3: Variants -->
         <Card v-show="currentStep === 2" title="Variants & Pricing" noPadding>
+          <div v-if="errors.price" class="p-3 m-4 bg-danger/10 border-3 border-danger rounded-sm text-danger font-bold">
+            {{ errors.price }}
+          </div>
           <div class="p-4 border-b-3 border-black flex justify-between items-center bg-white">
             <p class="text-sm font-bold text-gray-600">Manage product variants (size, color, etc.)</p>
             <Button size="sm" variant="secondary" @click="addVariant">
@@ -234,7 +266,7 @@ const removeVariant = (id: string) => {
       <div class="space-y-6">
         <Card title="Organization">
           <div class="space-y-4">
-            <Select v-model="formData.category" :options="categoryOptions" label="Category" />
+            <Select v-model="formData.category" :options="categoryOptions" label="Category" :error="errors.category" />
             <Select v-model="formData.status" :options="statusOptions" label="Status" />
           </div>
         </Card>

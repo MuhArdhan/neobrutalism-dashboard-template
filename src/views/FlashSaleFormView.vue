@@ -30,15 +30,41 @@ const toggleProduct = (id: string) => {
   }
 }
 
-const saveFlashSale = () => {
-  if (!form.value.name || !form.value.startTime || !form.value.endTime) {
-    alert('Please fill in all required fields.')
-    return
+const errors = ref<Record<string, string>>({})
+
+const validateForm = () => {
+  errors.value = {}
+  let isValid = true
+
+  if (!form.value.name) {
+    errors.value.name = 'Campaign name is required'
+    isValid = false
   }
+
+  if (!form.value.startTime) {
+    errors.value.startTime = 'Start time is required'
+    isValid = false
+  }
+
+  if (!form.value.endTime) {
+    errors.value.endTime = 'End time is required'
+    isValid = false
+  } else if (new Date(form.value.endTime) <= new Date(form.value.startTime)) {
+    errors.value.endTime = 'End time must be after start time'
+    isValid = false
+  }
+
   if (selectedProducts.value.length === 0) {
-    alert('Please select at least one product.')
-    return
+    errors.value.products = 'Please select at least one product'
+    isValid = false
   }
+
+  return isValid
+}
+
+const saveFlashSale = () => {
+  if (!validateForm()) return
+  
   alert('Flash Sale scheduled successfully! (Mock)')
   router.push('/flash-sales')
 }
@@ -65,6 +91,7 @@ const saveFlashSale = () => {
               v-model="form.name" 
               label="Campaign Name" 
               placeholder="e.g. Midnight Madness" 
+              :error="errors.name"
             />
             
             <div>
@@ -72,8 +99,12 @@ const saveFlashSale = () => {
               <input 
                 type="datetime-local" 
                 v-model="form.startTime" 
-                class="w-full p-3 border-3 border-black rounded-sm bg-surface focus:bg-white focus:-translate-y-0.5 focus:-translate-x-0.5 focus:shadow-neo-sm transition-all outline-none font-bold"
+                :class="[
+                  'w-full p-3 border-3 rounded-sm outline-none transition-all focus:-translate-y-0.5 focus:-translate-x-0.5 font-bold',
+                  errors.startTime ? 'border-danger bg-danger/10 shadow-none' : 'border-black bg-surface focus:bg-white focus:shadow-neo-sm'
+                ]"
               >
+              <span v-if="errors.startTime" class="text-danger font-bold text-xs mt-1 block">{{ errors.startTime }}</span>
             </div>
             
             <div>
@@ -81,8 +112,12 @@ const saveFlashSale = () => {
               <input 
                 type="datetime-local" 
                 v-model="form.endTime" 
-                class="w-full p-3 border-3 border-black rounded-sm bg-surface focus:bg-white focus:-translate-y-0.5 focus:-translate-x-0.5 focus:shadow-neo-sm transition-all outline-none font-bold"
+                :class="[
+                  'w-full p-3 border-3 rounded-sm outline-none transition-all focus:-translate-y-0.5 focus:-translate-x-0.5 font-bold',
+                  errors.endTime ? 'border-danger bg-danger/10 shadow-none' : 'border-black bg-surface focus:bg-white focus:shadow-neo-sm'
+                ]"
               >
+              <span v-if="errors.endTime" class="text-danger font-bold text-xs mt-1 block">{{ errors.endTime }}</span>
             </div>
             
             <div class="pt-4 border-t-3 border-black border-dashed">
@@ -95,6 +130,9 @@ const saveFlashSale = () => {
       <!-- Right Column: Products Selection -->
       <div class="lg:col-span-2 space-y-6">
         <Card title="Product Selection & Pricing">
+          <div v-if="errors.products" class="mb-4 p-3 bg-danger/10 border-3 border-danger rounded-sm text-danger font-bold">
+            {{ errors.products }}
+          </div>
           <div class="flex gap-4 items-end mb-6">
             <div class="flex-1">
               <Input 

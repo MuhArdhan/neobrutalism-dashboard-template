@@ -28,7 +28,36 @@ const typeOptions = [
   { value: 'Free Shipping', label: 'Free Shipping' },
 ]
 
+const errors = ref<Record<string, string>>({})
+
+const validateForm = () => {
+  errors.value = {}
+  let isValid = true
+
+  if (!form.value.code) {
+    errors.value.code = 'Coupon code is required'
+    isValid = false
+  } else if (form.value.code.length < 3) {
+    errors.value.code = 'Code must be at least 3 characters'
+    isValid = false
+  }
+
+  if (form.value.type !== 'Free Shipping' && !form.value.value) {
+    errors.value.value = 'Discount value is required'
+    isValid = false
+  }
+
+  if (!form.value.startDate) {
+    errors.value.startDate = 'Start date is required'
+    isValid = false
+  }
+
+  return isValid
+}
+
 const saveCoupon = () => {
+  if (!validateForm()) return
+  
   alert('Coupon saved successfully! (Mock)')
   router.push('/coupons')
 }
@@ -56,6 +85,7 @@ const saveCoupon = () => {
               label="Coupon Code" 
               placeholder="e.g. SUMMER2026" 
               helperText="Customers will enter this code at checkout."
+              :error="errors.code"
             />
             
             <div class="grid grid-cols-2 gap-4">
@@ -70,6 +100,7 @@ const saveCoupon = () => {
                 :placeholder="form.type === 'Percentage' ? 'e.g. 20' : 'e.g. 15.00'" 
                 type="number"
                 :disabled="form.type === 'Free Shipping'"
+                :error="errors.value"
               />
             </div>
           </div>
@@ -103,10 +134,14 @@ const saveCoupon = () => {
                 <input 
                   type="date" 
                   v-model="form.startDate" 
-                  class="w-full p-3 border-3 border-black rounded-sm bg-surface focus:bg-white focus:-translate-y-0.5 focus:-translate-x-0.5 focus:shadow-neo-sm transition-all outline-none font-bold appearance-none"
+                  :class="[
+                    'w-full p-3 border-3 rounded-sm outline-none transition-all focus:-translate-y-0.5 focus:-translate-x-0.5 font-bold appearance-none',
+                    errors.startDate ? 'border-danger bg-danger/10 shadow-none' : 'border-black bg-surface focus:bg-white focus:shadow-neo-sm'
+                  ]"
                 >
                 <Calendar class="absolute right-3 top-3.5 w-5 h-5 text-gray-400 pointer-events-none" />
               </div>
+              <span v-if="errors.startDate" class="text-danger font-bold text-xs mt-1 block">{{ errors.startDate }}</span>
             </div>
             
             <div>
