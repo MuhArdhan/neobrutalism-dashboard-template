@@ -72,7 +72,7 @@ const handleAction = (action: string, id: string) => {
           <Download class="w-4 h-4 mr-2" />
           Export
         </Button>
-        <Button variant="primary">
+        <Button variant="primary" @click="$router.push('/products/new')">
           <Plus class="w-4 h-4 mr-2" />
           Add Product
         </Button>
