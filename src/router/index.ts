@@ -5,6 +5,8 @@ import ProductsView from '../views/ProductsView.vue'
 import ProductFormView from '../views/ProductFormView.vue'
 import OrdersView from '../views/OrdersView.vue'
 import OrderDetailView from '../views/OrderDetailView.vue'
+import CustomersView from '../views/CustomersView.vue'
+import CustomerProfileView from '../views/CustomerProfileView.vue'
 import UIDemoView from '../views/UIDemoView.vue'
 
 const router = createRouter({
@@ -36,10 +38,20 @@ const router = createRouter({
       component: OrderDetailView,
     },
     {
+      path: '/customers',
+      name: 'customers',
+      component: CustomersView,
+    },
+    {
+      path: '/customers/:id',
+      name: 'customer-profile',
+      component: CustomerProfileView,
+    },
+    {
       path: '/ui-demo',
       name: 'uidemo',
       component: UIDemoView,
-    }
+    },
   ],
 })
 
