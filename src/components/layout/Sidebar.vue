@@ -38,6 +38,15 @@ defineEmits(['close'])
       </router-link>
       
       <router-link 
+        to="/orders" 
+        @click="$emit('close')"
+        active-class="bg-white border-black shadow-neo -translate-y-0.5" 
+        class="block px-4 py-3 font-bold border-3 border-transparent hover:border-black hover:bg-white hover:shadow-neo transition-all rounded-sm"
+      >
+        Orders
+      </router-link>
+      
+      <router-link 
         to="/ui-demo" 
         @click="$emit('close')"
         active-class="bg-white border-black shadow-neo -translate-y-0.5" 

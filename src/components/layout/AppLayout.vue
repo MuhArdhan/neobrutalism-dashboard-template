@@ -16,18 +16,18 @@ const toggleMobileSidebar = () => {
     <Sidebar class="hidden md:flex" />
 
     <!-- Mobile Sidebar Drawer -->
-    <div 
-      v-if="isMobileSidebarOpen" 
-      class="fixed inset-0 z-40 flex md:hidden"
-    >
+    <div v-if="isMobileSidebarOpen" class="fixed inset-0 z-40 flex md:hidden">
       <!-- Backdrop -->
-      <div 
+      <div
         class="fixed inset-0 bg-black/50 backdrop-blur-sm"
         @click="isMobileSidebarOpen = false"
       ></div>
-      
+
       <!-- Drawer Content -->
-      <Sidebar class="relative flex w-64 max-w-xs bg-primary flex-col z-50 h-full" @close="isMobileSidebarOpen = false" />
+      <Sidebar
+        class="relative flex w-64 max-w-xs bg-primary flex-col z-50 h-full"
+        @close="isMobileSidebarOpen = false"
+      />
     </div>
 
     <!-- Main Content -->

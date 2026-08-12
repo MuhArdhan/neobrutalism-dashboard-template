@@ -77,3 +77,14 @@ export const products = [
   { id: 'PRD-009', name: 'Brutalism Web Template', category: 'Code', price: '$59.00', stock: 0, status: 'Draft' },
   { id: 'PRD-010', name: 'Cyberpunk Font', category: 'Typography', price: '$25.00', stock: 320, status: 'Active' },
 ]
+
+export const ordersData = [
+  { id: 'ORD-1001', customer: 'John Doe', total: '$145.00', items: 3, date: '2026-08-10', status: 'Pending' },
+  { id: 'ORD-1002', customer: 'Jane Smith', total: '$89.00', items: 1, date: '2026-08-11', status: 'Processing' },
+  { id: 'ORD-1003', customer: 'Alex Kim', total: '$210.50', items: 5, date: '2026-08-09', status: 'Shipped' },
+  { id: 'ORD-1004', customer: 'Sarah Lee', total: '$45.00', items: 2, date: '2026-08-05', status: 'Delivered' },
+  { id: 'ORD-1005', customer: 'Michael Chen', total: '$320.00', items: 4, date: '2026-08-12', status: 'Pending' },
+  { id: 'ORD-1006', customer: 'Emily Wang', total: '$65.00', items: 1, date: '2026-08-11', status: 'Processing' },
+  { id: 'ORD-1007', customer: 'David Brown', total: '$120.00', items: 2, date: '2026-08-08', status: 'Shipped' },
+  { id: 'ORD-1008', customer: 'Lisa Taylor', total: '$95.00', items: 3, date: '2026-08-07', status: 'Delivered' },
+]
