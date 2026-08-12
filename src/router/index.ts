@@ -1,17 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import DashboardView from '../views/DashboardView.vue'
-import ProductsView from '../views/ProductsView.vue'
-import ProductFormView from '../views/ProductFormView.vue'
-import OrdersView from '../views/OrdersView.vue'
-import OrderDetailView from '../views/OrderDetailView.vue'
-import CustomersView from '../views/CustomersView.vue'
-import CustomerProfileView from '../views/CustomerProfileView.vue'
-import CouponsView from '../views/CouponsView.vue'
-import CouponFormView from '../views/CouponFormView.vue'
-import FlashSalesView from '../views/FlashSalesView.vue'
-import FlashSaleFormView from '../views/FlashSaleFormView.vue'
-import UIDemoView from '../views/UIDemoView.vue'
+// Routes are lazy loaded using dynamic imports
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,62 +8,62 @@ const router = createRouter({
     {
       path: '/',
       name: 'dashboard',
-      component: DashboardView,
+      component: () => import('../views/DashboardView.vue'),
     },
     {
       path: '/products',
       name: 'products',
-      component: ProductsView,
+      component: () => import('../views/ProductsView.vue'),
     },
     {
       path: '/products/new',
       name: 'product-new',
-      component: ProductFormView,
+      component: () => import('../views/ProductFormView.vue'),
     },
     {
       path: '/orders',
       name: 'orders',
-      component: OrdersView,
+      component: () => import('../views/OrdersView.vue'),
     },
     {
       path: '/orders/:id',
       name: 'order-detail',
-      component: OrderDetailView,
+      component: () => import('../views/OrderDetailView.vue'),
     },
     {
       path: '/customers',
       name: 'customers',
-      component: CustomersView,
+      component: () => import('../views/CustomersView.vue'),
     },
     {
       path: '/customers/:id',
       name: 'customer-profile',
-      component: CustomerProfileView,
+      component: () => import('../views/CustomerProfileView.vue'),
     },
     {
       path: '/coupons',
       name: 'coupons',
-      component: CouponsView,
+      component: () => import('../views/CouponsView.vue'),
     },
     {
       path: '/coupons/new',
       name: 'coupon-new',
-      component: CouponFormView,
+      component: () => import('../views/CouponFormView.vue'),
     },
     {
       path: '/flash-sales',
       name: 'flash-sales',
-      component: FlashSalesView,
+      component: () => import('../views/FlashSalesView.vue'),
     },
     {
       path: '/flash-sales/new',
       name: 'flash-sale-new',
-      component: FlashSaleFormView,
+      component: () => import('../views/FlashSaleFormView.vue'),
     },
     {
       path: '/ui-demo',
       name: 'uidemo',
-      component: UIDemoView,
+      component: () => import('../views/UIDemoView.vue'),
     },
   ],
 })
