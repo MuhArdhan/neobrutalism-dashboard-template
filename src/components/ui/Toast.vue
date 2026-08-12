@@ -48,8 +48,8 @@ const typeStyles = computed(() => {
       class="max-w-sm w-full bg-surface border-3 border-black shadow-neo rounded-sm overflow-hidden flex"
     >
       <!-- Indicator Side -->
-      <div :class="['w-12 flex items-center justify-center border-r-3 border-black', typeStyles.bg]">
-        <component :is="typeStyles.icon" class="w-6 h-6 text-black" stroke-width="2.5" />
+      <div :class="['w-12 flex items-center justify-center border-r-3 border-black', typeStyles?.bg]">
+        <component :is="typeStyles?.icon" class="w-6 h-6 text-black" stroke-width="2.5" />
       </div>
       
       <!-- Content -->
