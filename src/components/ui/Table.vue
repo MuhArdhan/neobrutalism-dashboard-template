@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import EmptyState from './EmptyState.vue'
+import LoadingSpinner from './LoadingSpinner.vue'
+
 defineProps({
   columns: {
     type: Array as () => { key: string; label: string; width?: string; align?: 'left'|'center'|'right' }[],
@@ -28,7 +31,7 @@ defineProps({
             v-for="col in columns" 
             :key="col.key"
             :class="[
-              'px-6 py-4 border-r-3 border-black last:border-r-0',
+              'px-6 py-4 border-r-3 border-black last:border-r-0 whitespace-nowrap',
               col.align === 'center' ? 'text-center' : col.align === 'right' ? 'text-right' : 'text-left'
             ]"
             :style="{ width: col.width }"
@@ -39,13 +42,13 @@ defineProps({
       </thead>
       <tbody>
         <tr v-if="loading">
-          <td :colspan="columns.length" class="px-6 py-8 text-center font-bold">
-            Loading data...
+          <td :colspan="columns.length" class="p-0">
+            <LoadingSpinner size="md" text="Loading data..." />
           </td>
         </tr>
         <tr v-else-if="data.length === 0">
-          <td :colspan="columns.length" class="px-6 py-8 text-center font-bold text-gray-500">
-            No data available.
+          <td :colspan="columns.length" class="p-0 border-b-3 border-black">
+            <EmptyState title="No Data Available" description="There are no records to display at this time." class="border-0 border-b-0 rounded-none bg-surface" />
           </td>
         </tr>
         <tr 
@@ -61,7 +64,7 @@ defineProps({
             v-for="col in columns" 
             :key="col.key"
             :class="[
-              'px-6 py-4 border-r-3 border-black last:border-r-0 font-medium',
+              'px-6 py-4 border-r-3 border-black last:border-r-0 font-medium whitespace-nowrap',
               col.align === 'center' ? 'text-center' : col.align === 'right' ? 'text-right' : 'text-left'
             ]"
           >
