@@ -16,7 +16,7 @@ defineProps({
 <template>
   <div class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
     <div>
-      <Breadcrumb v-if="showBreadcrumb" />
+      <Breadcrumb v-if="showBreadcrumb" class="print:hidden" />
       <h1 class="text-3xl md:text-4xl font-black tracking-tight uppercase">{{ title }}</h1>
     </div>
     

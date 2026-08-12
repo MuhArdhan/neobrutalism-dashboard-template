@@ -4,6 +4,7 @@ import DashboardView from '../views/DashboardView.vue'
 import ProductsView from '../views/ProductsView.vue'
 import ProductFormView from '../views/ProductFormView.vue'
 import OrdersView from '../views/OrdersView.vue'
+import OrderDetailView from '../views/OrderDetailView.vue'
 import UIDemoView from '../views/UIDemoView.vue'
 
 const router = createRouter({
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/orders',
       name: 'orders',
       component: OrdersView,
+    },
+    {
+      path: '/orders/:id',
+      name: 'order-detail',
+      component: OrderDetailView,
     },
     {
       path: '/ui-demo',

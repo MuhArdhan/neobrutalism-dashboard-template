@@ -105,6 +105,7 @@ const onEnd = (evt: any) => {
               <template #item="{ element }">
                 <div
                   v-show="checkSearchMatch(element)"
+                  @click="$router.push(`/orders/${element.id}`)"
                   class="bg-white border-3 border-black p-4 rounded-sm shadow-neo-sm hover:shadow-neo hover:-translate-y-1 transition-all cursor-move group relative"
                 >
                   <!-- Card Header -->
