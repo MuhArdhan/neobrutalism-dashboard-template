@@ -184,70 +184,18 @@ export const products = [
 ]
 
 export const ordersData = [
-  {
-    id: 'ORD-1001',
-    customer: 'John Doe',
-    total: '$145.00',
-    items: 3,
-    date: '2026-08-10',
-    status: 'Pending',
-  },
-  {
-    id: 'ORD-1002',
-    customer: 'Jane Smith',
-    total: '$89.00',
-    items: 1,
-    date: '2026-08-11',
-    status: 'Processing',
-  },
-  {
-    id: 'ORD-1003',
-    customer: 'Alex Kim',
-    total: '$210.50',
-    items: 5,
-    date: '2026-08-09',
-    status: 'Shipped',
-  },
-  {
-    id: 'ORD-1004',
-    customer: 'Sarah Lee',
-    total: '$45.00',
-    items: 2,
-    date: '2026-08-05',
-    status: 'Delivered',
-  },
-  {
-    id: 'ORD-1005',
-    customer: 'Michael Chen',
-    total: '$320.00',
-    items: 4,
-    date: '2026-08-12',
-    status: 'Pending',
-  },
-  {
-    id: 'ORD-1006',
-    customer: 'Emily Wang',
-    total: '$65.00',
-    items: 1,
-    date: '2026-08-11',
-    status: 'Processing',
-  },
-  {
-    id: 'ORD-1007',
-    customer: 'David Brown',
-    total: '$120.00',
-    items: 2,
-    date: '2026-08-08',
-    status: 'Shipped',
-  },
-  {
-    id: 'ORD-1008',
-    customer: 'Lisa Taylor',
-    total: '$95.00',
-    items: 3,
-    date: '2026-08-07',
-    status: 'Delivered',
-  },
+  { id: 'ORD-1001', customer: 'John Doe', total: '$145.00', items: 3, date: '2026-08-10', status: 'Pending' },
+  { id: 'ORD-1002', customer: 'Jane Smith', total: '$89.00', items: 1, date: '2026-08-11', status: 'Processing' },
+  { id: 'ORD-1003', customer: 'Alex Kim', total: '$210.50', items: 5, date: '2026-08-09', status: 'Shipped' },
+  { id: 'ORD-1004', customer: 'Sarah Lee', total: '$45.00', items: 2, date: '2026-08-05', status: 'Delivered' },
+  { id: 'ORD-1005', customer: 'Michael Chen', total: '$320.00', items: 4, date: '2026-08-12', status: 'Pending' },
+  { id: 'ORD-1006', customer: 'Emily Wang', total: '$65.00', items: 1, date: '2026-08-11', status: 'Processing' },
+  { id: 'ORD-1007', customer: 'David Brown', total: '$120.00', items: 2, date: '2026-08-08', status: 'Shipped' },
+  { id: 'ORD-1008', customer: 'Lisa Taylor', total: '$95.00', items: 3, date: '2026-08-07', status: 'Delivered' },
+  { id: 'ORD-1009', customer: 'Robert Garcia', total: '$450.00', items: 8, date: '2026-08-12', status: 'Pending' },
+  { id: 'ORD-1010', customer: 'Amanda Martinez', total: '$29.99', items: 1, date: '2026-08-10', status: 'Delivered' },
+  { id: 'ORD-1011', customer: 'William Davis', total: '$199.50', items: 4, date: '2026-08-11', status: 'Shipped' },
+  { id: 'ORD-1012', customer: 'Sophia Rodriguez', total: '$75.25', items: 2, date: '2026-08-09', status: 'Processing' },
 ]
 
 export const customersData = [
@@ -257,6 +205,10 @@ export const customersData = [
   { id: 'CUST-004', name: 'Sarah Lee', email: 'sarah.lee@example.com', orders: 8, spent: 920.00, joinDate: '2025-11-11', status: 'Active' },
   { id: 'CUST-005', name: 'Michael Chen', email: 'michael.chen@example.com', orders: 24, spent: 3200.00, joinDate: '2024-03-05', status: 'VIP' },
   { id: 'CUST-006', name: 'Emily Wang', email: 'emily.wang@example.com', orders: 0, spent: 0, joinDate: '2026-08-10', status: 'Inactive' },
+  { id: 'CUST-007', name: 'Robert Garcia', email: 'robert.g@example.com', orders: 15, spent: 2100.50, joinDate: '2024-08-19', status: 'VIP' },
+  { id: 'CUST-008', name: 'Amanda Martinez', email: 'amanda.m@example.com', orders: 2, spent: 120.99, joinDate: '2026-05-14', status: 'Active' },
+  { id: 'CUST-009', name: 'William Davis', email: 'will.davis@example.com', orders: 6, spent: 650.00, joinDate: '2025-09-03', status: 'Active' },
+  { id: 'CUST-010', name: 'Sophia Rodriguez', email: 'sophia.r@example.com', orders: 1, spent: 75.25, joinDate: '2026-08-09', status: 'New' },
 ]
 
 export const couponsData = [
@@ -264,6 +216,8 @@ export const couponsData = [
   { id: 'CPN-002', code: 'WELCOME10', type: 'Fixed Amount', value: 10, minPurchase: '$0.00', usage: '89 / ∞', expiry: 'No Expiry', status: 'Active' },
   { id: 'CPN-003', code: 'SUMMERFLASH', type: 'Percentage', value: 50, minPurchase: '$100.00', usage: '200 / 200', expiry: '2026-07-31', status: 'Expired' },
   { id: 'CPN-004', code: 'BLACKFRIDAY', type: 'Fixed Amount', value: 30, minPurchase: '$150.00', usage: '0 / 1000', expiry: '2026-11-25', status: 'Scheduled' },
+  { id: 'CPN-005', code: 'VIPONLY', type: 'Percentage', value: 25, minPurchase: '$200.00', usage: '42 / 100', expiry: '2027-01-01', status: 'Active' },
+  { id: 'CPN-006', code: 'FREESHIP', type: 'Fixed Amount', value: 15, minPurchase: '$30.00', usage: '892 / ∞', expiry: '2026-12-31', status: 'Active' },
 ]
 
 export const flashSalesData = [
