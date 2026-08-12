@@ -64,3 +64,16 @@ export const salesChartData = {
     }
   ]
 }
+
+export const products = [
+  { id: 'PRD-001', name: 'Neo-Brutalism UI Kit', category: 'Design', price: '$49.00', stock: 120, status: 'Active' },
+  { id: 'PRD-002', name: 'Vintage Poster Set', category: 'Print', price: '$24.00', stock: 15, status: 'Low Stock' },
+  { id: 'PRD-003', name: 'Retro Typeface', category: 'Typography', price: '$29.00', stock: 450, status: 'Active' },
+  { id: 'PRD-004', name: 'Dark Mode Theme', category: 'Design', price: '$19.00', stock: 0, status: 'Out of Stock' },
+  { id: 'PRD-005', name: 'Abstract Icons', category: 'Design', price: '$15.00', stock: 200, status: 'Active' },
+  { id: 'PRD-006', name: 'Minimalist Wireframes', category: 'Design', price: '$39.00', stock: 85, status: 'Active' },
+  { id: 'PRD-007', name: '3D Shapes Pack', category: 'Assets', price: '$44.00', stock: 42, status: 'Active' },
+  { id: 'PRD-008', name: 'Gradient Backgrounds', category: 'Assets', price: '$12.00', stock: 5, status: 'Low Stock' },
+  { id: 'PRD-009', name: 'Brutalism Web Template', category: 'Code', price: '$59.00', stock: 0, status: 'Draft' },
+  { id: 'PRD-010', name: 'Cyberpunk Font', category: 'Typography', price: '$25.00', stock: 320, status: 'Active' },
+]

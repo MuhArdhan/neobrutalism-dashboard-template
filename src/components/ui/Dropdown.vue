@@ -40,13 +40,15 @@ onUnmounted(() => {
 <template>
   <div class="relative inline-block text-left" ref="dropdownRef">
     <!-- Trigger -->
-    <button
-      @click="toggle"
-      class="inline-flex items-center justify-between w-full px-4 py-2 font-bold border-3 border-black bg-surface rounded-sm transition-all hover:bg-muted focus:outline-none"
-    >
-      <span>{{ label }}</span>
-      <ChevronDownVue class="w-4 h-4 ml-2" />
-    </button>
+    <slot name="trigger" :toggle="toggle" :isOpen="isOpen">
+      <button
+        @click="toggle"
+        class="inline-flex items-center justify-between w-full px-4 py-2 font-bold border-3 border-black bg-surface rounded-sm transition-all hover:bg-muted focus:outline-none"
+      >
+        <span v-if="label">{{ label }}</span>
+        <ChevronDownVue class="w-4 h-4 ml-2" />
+      </button>
+    </slot>
 
     <!-- Menu -->
     <div
