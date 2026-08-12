@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #FF90E8;
+  --color-secondary: #FFD000;
+  --color-background: #FFF9E6;
+}
+
 @layer base {
   body {
     @apply bg-background text-black font-sans antialiased;

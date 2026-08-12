@@ -7,13 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#FF90E8',
-        secondary: '#FFD000',
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
         success: '#4ade80',
         danger: '#ff4949',
         muted: '#f4f4f5',
         surface: '#ffffff',
-        background: '#FFF9E6',
+        background: 'var(--color-background)',
         border: '#000000'
       },
       borderWidth: {

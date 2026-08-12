@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import Sidebar from './Sidebar.vue'
 import Topbar from './Topbar.vue'
+import ThemeSwitcher from '../ui/ThemeSwitcher.vue'
 
 const isMobileSidebarOpen = ref(false)
 
@@ -37,5 +38,8 @@ const toggleMobileSidebar = () => {
         <slot />
       </main>
     </div>
+
+    <!-- Global Theme Switcher -->
+    <ThemeSwitcher />
   </div>
 </template>
